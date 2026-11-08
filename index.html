@@ -274,6 +274,14 @@ html.lt .swtg{background:#F4F0EA;color:#1A1A1C;box-shadow:inset 0 0 0 1px #DCD5C
 html.lt .swtg.on{color:#8A4B00;background:#FFF3DA;box-shadow:inset 0 0 0 1.5px #B8480A}
 html.lt .swtg.rec{box-shadow:inset 0 0 0 1.5px #B8480A}
 html.lt .swoff{color:#5F5A53;box-shadow:inset 0 0 0 1px #DCD5CA}
+.dctl{display:flex;align-items:center;gap:4px;margin:8px 0 2px}
+.dar{width:44px;height:44px;display:grid;place-items:center;border-radius:12px;color:var(--mu);font-size:26px;line-height:1}
+.dbtn{position:relative;flex:1;min-height:44px;display:flex;align-items:center;justify-content:center;font-size:20px;color:var(--tx);border-radius:12px}
+.dpick{position:absolute;inset:0;width:100%;height:100%;opacity:0;border:0;-webkit-appearance:none;appearance:none}
+.dtoday{display:block;margin:2px auto 6px;min-height:44px;padding:0 18px;border-radius:12px;font-size:14px;font-weight:600;color:#FFCF5A;box-shadow:inset 0 0 0 1px rgba(255,190,26,.45)}
+.sched .dt{text-align:center}
+.dempty{padding:28px 0;text-align:center;color:var(--mu);font-size:15px}
+html.lt .dtoday{color:#8A4B00;box-shadow:inset 0 0 0 1px #B8480A}
 </style></head><body>
 <div id="rpSplash" class="rp-splash" role="img" aria-label="Retina Pilot" title="Tap to skip">
 <svg class="sp-svg" xmlns="http://www.w3.org/2000/svg" viewBox="212 140 600 790" aria-hidden="true" focusable="false"><defs>
@@ -343,7 +351,22 @@ var S;try{S=JSON.parse(localStorage.getItem(KEY))}catch(e){}
 if(!S||!S.pts)S={pts:demo(),view:'list',pid:null,eye:'OD'};
 function save(){try{localStorage.setItem(KEY,JSON.stringify(S))}catch(e){}}
 var app=document.getElementById('app'),$=function(q){return document.querySelector(q)};
-function P(){for(var i=0;i<S.pts.length;i++)if(S.pts[i].id===S.pid)return S.pts[i]}
+function iso(d){return d.getFullYear()+'-'+('0'+(d.getMonth()+1)).slice(-2)+'-'+('0'+d.getDate()).slice(-2)}
+function pd(t){var a=t.split('-');return new Date(+a[0],a[1]-1,+a[2])}
+var TODAY=iso(new Date()),VD=TODAY;
+var FN=['Agnes','Bernard','Celia','Desmond','Edith','Felix','Gloria','Howard','Irene','Julius','Kathleen','Leonard','Mabel','Norman','Opal','Percy','Rosalind','Stanley','Thelma','Vernon','Winifred','Clyde','Delia','Ambrose'],LN=['Ashby','Bellweather','Corrigan','Dunmore','Ellery','Fairbanks','Galloway','Hartwell','Ingram','Jessup','Kettering','Langford','Merriweather','Northcott','Oakley','Pemberton','Quill','Radcliffe','Sterling','Thornbury','Underhill','Vance','Whitlock','Yardley'];
+var DXS=[['nAMD','Aflibercept 2 mg'],['DME','Faricimab 6 mg'],['nAMD','Aflibercept 8 mg'],['BRVO-ME','Ranibizumab 0.5 mg'],['DME','Bevacizumab 1.25 mg'],['CRVO-ME','Faricimab 6 mg'],['PDR','Aflibercept 2 mg']];
+function rnd(seed){var x=seed>>>0;return function(){x=(x*1664525+1013904223)>>>0;return x/4294967296}}
+function hs(t){var h=2166136261;for(var i=0;i<t.length;i++){h^=t.charCodeAt(i);h=Math.imul(h,16777619)}return h>>>0}
+function genDay(date,prov){var d=pd(date),wd=d.getDay(),r=rnd(hs(date+'|'+prov)),n=wd===0?0:wd===6?2:5+Math.floor(r()*4),past=date<TODAY,a=[];
+for(var i=0;i<n;i++){var sd=Math.floor(r()*1000),f=FN[Math.floor(r()*FN.length)],l=LN[Math.floor(r()*LN.length)],x=DXS[Math.floor(r()*DXS.length)],y=DXS[Math.floor(r()*DXS.length)],ou=r()<.5,iv1=4+2*Math.floor(r()*6),iv2=4+2*Math.floor(r()*6),mins=8*60+15*i,
+p={id:hs(date+prov+i)%900000+100000,date:date,prov:prov,time:Math.floor(mins/60)+':'+('0'+mins%60).slice(-2),name:f+' '+l,age:52+Math.floor(r()*36),sex:/^(Agnes|Celia|Edith|Gloria|Irene|Kathleen|Mabel|Opal|Rosalind|Thelma|Winifred|Delia)$/.test(f)?'F':'M',mrn:'DEMO-'+(410000+hs(f+l+date)%89999),status:past?'Done':'Scheduled',notes:'',eyes:{OD:E(x[0],x[1],iv1,'OCT needed','20/'+(25+5*Math.floor(r()*8)),13+Math.floor(r()*6),250+Math.floor(r()*120),sd),OS:ou?E(y[0],y[1],iv2,'No OCT today','20/'+(25+5*Math.floor(r()*8)),13+Math.floor(r()*6),250+Math.floor(r()*120),sd+1):E('Normal','\u2014',0,'No OCT today','20/25',15,240,sd+1,false)}};
+if(past)['OD','OS'].forEach(function(k){var e=p.eyes[k];if(e.treat){e.done=true;e.oct='OCT done';e.lastAct={a:e.iv,b:e.iv,f:e.drug,t:null,only:false}}});a.push(p)}return a}
+function dayPts(date,prov){prov=prov||ST().prov;if(date===TODAY&&prov==='Dr. Thompson')return S.pts;S.days=S.days||{};var k=date+'|'+prov;if(!S.days[k])S.days[k]=genDay(date,prov);return S.days[k]}
+function allPts(){var a=S.pts.slice();if(S.days)for(var k in S.days)a=a.concat(S.days[k]);return a}
+function P(){var a=allPts();for(var i=0;i<a.length;i++)if(a[i].id===S.pid)return a[i]}
+function dLab(t){var d=pd(t),s=d.toLocaleDateString('en-US',{weekday:'short',month:'short',day:'numeric'});return t===TODAY?'Today \u00b7 '+s:s}
+function shift(t,n){var d=pd(t);d.setDate(d.getDate()+n);return iso(d)}
 function esc(t){return String(t).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
 function fmt(d){return d.toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric'})}
 function lastDate(e){if(e.lastDate)return e.lastDate;var d=new Date();d.setDate(d.getDate()-7*(e.iv||8));return fmt(d)}
@@ -380,7 +403,7 @@ var LOGO=document.getElementById('logoTpl').innerHTML;
 function bar(back,gear){return '<div class="ab">'+(back?'<button class="abk" data-a="'+back+'" aria-label="Back">‹</button>':'')+LOGO+'<span class="wm">RETINA PILOT</span>'+(S.view!=='set'?'<button class="gear" data-a="settings" aria-label="Settings"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/></svg></button>':'')+'<span class="av">JT</span>'+'</div>'}
 function header(p){var t=treating(p);return '<div class="hd"><div class="chips"><button class="pill '+SCL[p.status]+'" data-a="status">'+p.status.toUpperCase()+'</button>'+(t?'<span class="pill ou">TREATING '+t+'</span>':'')+'<span class="prov">Dr. Thompson</span></div><div class="name disp">'+esc(p.name)+'</div><div class="meta num"><span>'+p.age+' '+p.sex+' · '+p.mrn+'</span><button class="lnk" data-a="td">♥ Treatment Details</button></div><div class="notes"><span>'+(p.notes?'Notes · '+esc(p.notes):'No notes')+'</span><button class="lnk" style="padding:0 12px" data-a="notes">Edit</button></div></div>'}
 function vList(){var d=new Date().toLocaleDateString('en-US',{weekday:'long',month:'long',day:'numeric'});
-return bar()+'<div class="wrap sched"><h1 class="disp">Today</h1><div class="dt">'+d+' · '+S.pts.length+' patients · '+esc(ST().prov)+'</div>'+S.pts.map(function(p){var t=treating(p);return '<button class="prow'+(p.status==='Done'?' done':'')+'" data-a="open" data-id="'+p.id+'"><span class="tm num">'+p.time+'</span><span><div class="nm">'+esc(p.name)+'</div><div class="sb2">'+p.age+' '+p.sex+(t?' · Treating '+t:'')+' · '+['OD','OS'].filter(function(k){return p.eyes[k].treat}).map(function(k){return k+' '+Q(p.eyes[k].iv)+''}).join(' · ')+'</div></span><span class="pill '+SCL[p.status]+'">'+p.status.toUpperCase()+'</span></button>'}).join('')+'<button class="reset" data-a="reset">Reset demo data</button></div>'}
+var L=dayPts(VD);return bar()+'<div class="wrap sched"><div class="dctl"><button class="dar" data-a="dprev" aria-label="Previous day">‹</button><label class="dbtn disp"><span class="dlab">'+dLab(VD)+'</span><input type="date" class="dpick" value="'+VD+'" aria-label="Choose schedule date"></label><button class="dar" data-a="dnext" aria-label="Next day">›</button></div>'+(VD!==TODAY?'<button class="dtoday" data-a="dtoday">Today</button>':'')+'<div class="dt">'+L.length+' patient'+(L.length===1?'':'s')+' · '+esc(ST().prov)+'</div>'+(L.length?'':'<div class="dempty">No patients scheduled.</div>')+L.map(function(p){var t=treating(p);return '<button class="prow'+(p.status==='Done'?' done':'')+'" data-a="open" data-id="'+p.id+'"><span class="tm num">'+p.time+'</span><span><div class="nm">'+esc(p.name)+'</div><div class="sb2">'+p.age+' '+p.sex+(t?' · Treating '+t:'')+' · '+['OD','OS'].filter(function(k){return p.eyes[k].treat}).map(function(k){return k+' '+Q(p.eyes[k].iv)+''}).join(' · ')+'</div></span><span class="pill '+SCL[p.status]+'">'+p.status.toUpperCase()+'</span></button>'}).join('')+(VD===TODAY?'<button class="reset" data-a="reset">Reset demo data</button>':'')+'</div>'}
 function eyeStatus(e){return e.treat?(e.done?'<span class="tdone">✓ Confirmed</span>':'<span class="oct '+OCL[e.oct]+'">'+e.oct+'</span>'):'<span class="oct q">Observation</span>'}
 function vSum(p){return bar('list')+header(p)+'<div class="wrap"><div class="sec lab"><span>Today · tap an eye</span><span>'+(treating(p)?'Treating '+treating(p):'Observation')+'</span></div>'+['OD','OS'].map(function(k){var e=p.eyes[k];return '<button class="card tile'+(e.treat?'':' obs')+'" data-a="eye" data-k="'+k+'"><span class="bd">'+k+'</span><div><div class="dx disp">'+esc(e.dx)+'</div><div class="drug">'+(e.treat?esc(dn(e.drug)):'Not treating')+'</div></div><div style="display:flex;align-items:center;gap:8px">'+(e.treat?'<span class="iv big disp">'+Q(e.iv)+'</span>':'')+'<span class="chev">›</span></div><div class="foot num"><span>'+eyeStatus(e)+'</span><span>'+(e.treat?'Last '+lastDate(e):'VA '+e.va)+'</span></div></button>'}).join('')+'<div class="btns"><button class="b s" data-a="list">Schedule</button><button class="b p" data-a="next">Next patient</button></div></div>'}
 function pane(p,k){var e=p.eyes[k],o=k==='OD'?'OS':'OD',eye=k==='OD'?'Right eye':'Left eye',h='';
@@ -447,7 +470,7 @@ function vSet(){var t=ST(),bk=S.setFrom&&S.setFrom!=='list'?'Back to patient':'B
 '<div class="tdc gen"><label class="tdf" style="margin-top:0"><span>Provider</span><select class="tdin" data-set="prov" aria-label="Provider">'+PROVS.map(function(o){return '<option'+(o===t.prov?' selected':'')+'>'+o+'</option>'}).join('')+'</select></label></div>'+
 '<button class="b s" style="display:grid" data-a="setback">'+bk+'</button></div>'}
 function theme(){document.documentElement.classList.toggle('lt',ST().theme==='light');document.documentElement.classList.toggle('mf',ST().mute==='fade');var m=document.querySelector('meta[name=theme-color]');if(m)m.content=ST().theme==='light'?'#FAF8F5':'#000000'}
-document.addEventListener('change',function(ev){var f=ev.target.dataset&&ev.target.dataset.set;if(f){ST()[f]=ev.target.value;render(true)}});
+document.addEventListener('change',function(ev){if(ev.target.classList&&ev.target.classList.contains('dpick')){if(/^\d{4}-\d{2}-\d{2}$/.test(ev.target.value)){VD=ev.target.value;render()}return}var f=ev.target.dataset&&ev.target.dataset.set;if(f){ST()[f]=ev.target.value;render(true)}});
 function done(p){return ['OD','OS'].every(function(k){var e=p.eyes[k];return !e.treat||e.done})}
 function vCard(p){return bar('sum')+header(p)+'<div class="tabs"><button class="back" data-a="sum">‹ Both</button><button class="tab'+(S.eye==='OD'?' on':'')+'" data-a="tab" data-k="OD">OD</button><button class="tab'+(S.eye==='OS'?' on':'')+'" data-a="tab" data-k="OS">OS</button></div><div class="viewport" id="vp"><div class="track" id="tr"><div class="pane" id="pOD">'+pane(p,'OD')+'</div><div class="pane" id="pOS">'+pane(p,'OS')+'</div></div></div>'}
 function render(keep){var y=window.scrollY,p=P();if(S.view!=='list'&&S.view!=='set'&&!p)S.view='list';
@@ -465,14 +488,17 @@ function closeSheet(){sc.classList.remove('on');sh.classList.remove('on')}
 sc.addEventListener('click',closeSheet);
 function act(a,el){var p=P(),k=el.dataset.k,e=p&&k?p.eyes[k]:null;
 switch(a){
-case'open':S.pid=+el.dataset.id;S.view='sum';render();break;
+case'open':S.pid=+el.dataset.id;var op=P();if(op&&op.date)VD=op.date;S.view='sum';render();break;
 case'list':S.view='list';render();break;
 case'sum':S.view='sum';render();break;
 case'eye':S.eye=k;S.view='card';render();break;
 case'tab':go(k);break;
-case'next':var i=S.pts.indexOf(p),n=null;for(var j=1;j<=S.pts.length;j++){var q=S.pts[(i+j)%S.pts.length];if(q.status!=='Done'){n=q;break}}if(n){S.pid=n.id;S.view='sum';render()}else{S.view='list';render();toast('All patients are done.')}break;
+case'next':var DL=dayPts(VD),i=DL.indexOf(p),n=null;for(var j=1;j<=DL.length;j++){var q=DL[(i+j)%DL.length];if(q.status!=='Done'){n=q;break}}if(n){S.pid=n.id;S.view='sum';render()}else{S.view='list';render();toast('All patients are done.')}break;
 case'status':p.status=STATUS[(STATUS.indexOf(p.status)+1)%4];var b=document.querySelector('[data-a=status]');if(b){b.className='pill '+SCL[p.status];b.textContent=p.status.toUpperCase()}save();break;
 case'td':openTd();break;
+case'dprev':VD=shift(VD,-1);render();break;
+case'dnext':VD=shift(VD,1);render();break;
+case'dtoday':VD=TODAY;render();break;
 case'settings':if(S.view==='set')break;S.setFrom=S.view;S.view='set';render();break;
 case'setback':S.view=S.setFrom&&S.setFrom!=='set'&&P()?S.setFrom:'list';render();break;
 case'set':ST()[el.dataset.f]=el.dataset.v;render(true);break;
@@ -496,7 +522,7 @@ case'confirm':e.lastDrug=e.drug;e.lastIv=e.iv;mig(e);var ni=newIv(e),to=e.sw?nex
 if(done(p))p.status='Done';else if(p.status==='Scheduled'||p.status==='Checked in')p.status='In room';
 rePane('OD');rePane('OS');toast(k+' confirmed · '+Q(ni)+'');var o=k==='OD'?'OS':'OD';if(!done(p)&&p.eyes[o].treat&&!p.eyes[o].done)setTimeout(function(){go(o)},450);break;
 case'undo':e.done=false;if(e.lastAct&&e.lastAct.t){e.sw=true;e.swTo=e.lastAct.t}e.ivPick=e.lastAct?!e.lastAct.only:false;e.drug=e.lastDrug||e.drug;e.lastAct=null;e.iv=e.lastIv||e.iv;if(p.status==='Done')p.status='In room';rePane('OD');rePane('OS');break;
-case'reset':if(confirm('Reset all demo data?')){S={pts:demo(),view:'list',pid:null,eye:'OD',set:S.set};render()}break;}}
+case'reset':if(confirm('Reset all demo data?')){VD=TODAY;S={pts:demo(),view:'list',pid:null,eye:'OD',set:S.set};render()}break;}}
 document.addEventListener('input',function(ev){var i=ev.target;if(!i.classList||!i.classList.contains('ocx-t'))return;var p=P(),kk=i.dataset.k,ee=p&&kk?p.eyes[kk]:null;if(!ee)return;ee.ctx=i.value;document.querySelectorAll('#p'+kk+' [data-a=ocxc]').forEach(function(b){b.classList.toggle('on',ocxOn(i.value,b.dataset.v))});save()});
 document.addEventListener('click',function(ev){var el=ev.target.closest('[data-a]');if(!el)return;if(swiped){swiped=false;return}act(el.dataset.a,el)});
 var sx,sy,dx,lock,swiped=false,W;
@@ -514,6 +540,6 @@ function skip(ev){if(ev){ev.preventDefault();ev.stopPropagation()}finish('skip')
 el.addEventListener('pointerdown',skip,true);el.addEventListener('click',skip,true);document.addEventListener('keydown',skip,true);
 setTimeout(function(){finish('auto')},rm?700:4100)})();
 if('serviceWorker' in navigator&&location.protocol.indexOf('http')===0&&window.RP_SW)navigator.serviceWorker.register('sw.js').catch(function(){});
-window.RP={state:function(){return S},go:go,ivUp:ivUp,ivDn:ivDn,usualPlan:usualPlan};
+window.RP={vd:function(){return VD},today:TODAY,state:function(){return S},go:go,ivUp:ivUp,ivDn:ivDn,usualPlan:usualPlan};
 })();
 </script></body></html>
