@@ -259,6 +259,12 @@ html.lt .ab svg.rp-mark{filter:drop-shadow(0 0 .6px rgba(96,32,8,.95)) drop-shad
 .ab .gear svg{width:20px!important;height:20px!important;filter:none!important;flex:none}
 .ab .gear{color:var(--fa);flex:none}
 html.lt .ab .gear{color:#746E66}
+.swl{max-height:56vh;overflow-y:auto;-webkit-overflow-scrolling:touch}
+.swl .opt{display:flex;justify-content:space-between;align-items:center;min-height:52px;height:auto}
+.swl .opt:disabled{color:var(--mu);opacity:1}
+.swt{font-size:12px;font-weight:600;color:var(--mu);letter-spacing:.04em}
+.swc{min-height:44px;padding:0 6px;font-size:14px}
+html.lt .swl .opt:disabled{color:#5F5A53}
 </style></head><body>
 <div id="rpSplash" class="rp-splash" role="img" aria-label="Retina Pilot" title="Tap to skip">
 <svg class="sp-svg" xmlns="http://www.w3.org/2000/svg" viewBox="212 140 600 790" aria-hidden="true" focusable="false"><defs>
@@ -342,8 +348,11 @@ function usualPlan(e){if(!e||!e.read||e.read==='Custom')return null;if(e.read===
 function recHint(e){var now=''+Q(e.iv)+'';if(!e.read)return 'Select your OCT read to see the usual next step.';if(e.read==='Custom')return 'Custom OCT read \u2192 no trend selected, so no step is suggested. Choose the interval.';if(e.read==='Improved')return 'Improved / dry \u2192 usual step: <b>extend by 2 wks</b> (max Q20W).';if(e.read==='Stable')return 'Stable \u2192 usual step: <b>keep '+now+'</b>. Extending is an option.';if(e.read==='Worse')return 'Worse \u2192 usual step: <b>decrease interval by 2 wks</b> (min Q4W) and consider a drug switch.';return ''}
 function ocxOn(ctx,c){return new RegExp('(^|[ ,;])'+c.toLowerCase()+'($|[ ,;])').test(String(ctx||'').toLowerCase())}
 function ocxToggle(ctx,c){var t=String(ctx||''),re=new RegExp('(^|,\\s*)'+c+'(?=$|[ ,;])','i');t=re.test(t)?t.replace(re,'$1').replace(/^,\s*|,\s*,/g,'').replace(/,\s*$/,''):(t?t.replace(/[ ,;]+$/, '')+', ':'')+c;return t.replace(/\s+/g,' ').replace(/^[ ,;]+/,'').trim()}
-function nextDrug(e){var i=DRUGS.indexOf(e.drug);return DRUGS[(i+1)%DRUGS.length]}
-function planLine(e,k){var n=newIv(e);if(e.plan==='Extend')return esc(dn(e.drug))+' '+k+', extend to <b>'+Q(n)+'</b>';if(e.plan==='Shorten')return esc(dn(e.drug))+' '+k+', shorten to <b>'+Q(n)+'</b>';if(e.plan==='Switch')return 'Switch '+k+' to '+esc(dn(nextDrug(e)))+', <b>'+Q(n)+'</b>';return esc(dn(e.drug))+' '+k+', keep at <b>'+Q(n)+'</b>'}
+function nextDrug(e){if(e.swTo&&e.swTo!==e.drug)return e.swTo;var i=DRUGS.indexOf(e.drug);return DRUGS[(i+1)%DRUGS.length]}
+function mol(x){var m=NAMES[x];return m?m[1].split(/[- ]/)[0]:x}
+var BIO={'Ranibizumab-nuna 0.5 mg':'Ranibizumab 0.5 mg','Ranibizumab-eqrn 0.5 mg':'Ranibizumab 0.5 mg','Aflibercept-jbvf 2 mg':'Aflibercept 2 mg','Aflibercept-ayyh 2 mg':'Aflibercept 2 mg'};
+function bio(a,b){var ra=BIO[a]||a,rb=BIO[b]||b;return a!==b&&ra===rb&&!!(BIO[a]||BIO[b])}
+function planLine(e,k){var n=newIv(e);if(e.plan==='Extend')return esc(dn(e.drug))+' '+k+', extend to <b>'+Q(n)+'</b>';if(e.plan==='Shorten')return esc(dn(e.drug))+' '+k+', shorten to <b>'+Q(n)+'</b>';if(e.plan==='Switch')return 'Switch '+k+': '+esc(dn(e.drug))+' \u2192 '+esc(dn(nextDrug(e)))+', <b>'+Q(n)+'</b> <button class="lnk swc" data-a="swpick" data-k="'+k+'">Change</button>';return esc(dn(e.drug))+' '+k+', keep at <b>'+Q(n)+'</b>'}
 function treating(p){var o=p.eyes.OD.treat,s=p.eyes.OS.treat;return o&&s?'OU':o?'OD':s?'OS':''}
 function spark(v,w,h){w=w||44;h=h||20;var mn=Math.min.apply(0,v),mx=Math.max.apply(0,v),r=(mx-mn)||1;return '<svg width="'+w+'" height="'+h+'"><polyline points="'+v.map(function(x,i){return (i*w/(v.length-1)).toFixed(1)+','+(h-2-(x-mn)/r*(h-4)).toFixed(1)}).join(' ')+'" fill="none" stroke="#F7902A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>'}
 function chart(p,id,W,lab){W=W||326;var H=130,L=26,T=12,B=22,n=p.length,mx=Math.max(16,Math.max.apply(0,p)),mn=4;lab=lab||function(v){return v+'w'};
@@ -375,7 +384,7 @@ var rec=usualPlan(e);
 h+='<div class="card"><div class="hdr"><span class="lab">Plan</span>'+(rec?'<span class="cap" style="margin:0">Usual step · '+rec+'</span>':'')+'</div><div class="seg">'+['Keep','Extend','Shorten','Switch'].map(function(x){return '<button class="'+(e.plan===x?'on':'')+(rec===x?' rec':'')+'" data-a="plan" data-k="'+k+'" data-v="'+x+'">'+x+'</button>'}).join('')+'</div>'+(e.read==='Worse'?'<div class="rech">Consider switch: worse on '+esc(dn(e.drug))+'. Next in sequence: '+esc(dn(nextDrug(e)))+'.</div>':'')+'<div class="planl" data-pl="'+k+'">Plan: '+planLine(e,k)+'</div>'+(e.done?'<button class="b ok" style="display:grid;height:52px;border-radius:16px;font-weight:600" data-a="undo" data-k="'+k+'">✓ Confirmed · tap to undo</button>':'<button class="b p" style="display:grid" data-a="confirm" data-k="'+k+'">Confirm '+k+'</button>')+'</div>'}
 var d=done(p);if(d)h+='<div class="fin"><p>Both eyes complete · patient marked Done</p><button class="b p" style="display:grid" data-a="next">Next patient</button><button class="b s" style="display:grid;margin-top:8px" data-a="list">Back to schedule</button></div>';
 h+='<div class="dots"><i class="'+(k==='OD'?'on':'')+'"></i><i class="'+(k==='OS'?'on':'')+'"></i></div><div class="hint">Swipe for '+o+'</div>';return h}
-function lastLine(e,k){var h=e.hist||[],cur=e.lastIv||e.iv,pv=h.length>1?h[h.length-2]:cur;return k+': '+(pv<cur?'Extended '+Q(pv)+' \u2192 '+Q(cur)+'':pv>cur?'Shortened '+Q(pv)+' \u2192 '+Q(cur)+'':'Kept '+Q(cur)+'')}
+function lastLine(e,k){if(e.lastSw)return k+': '+(e.lastSw.bio?'Biosimilar switch ':'Switched ')+dn(e.lastSw.from)+' \u2192 '+dn(e.lastSw.to)+' \u00b7 '+Q(e.lastIv||e.iv);var h=e.hist||[],cur=e.lastIv||e.iv,pv=h.length>1?h[h.length-2]:cur;return k+': '+(pv<cur?'Extended '+Q(pv)+' \u2192 '+Q(cur)+'':pv>cur?'Shortened '+Q(pv)+' \u2192 '+Q(cur)+'':'Kept '+Q(cur)+'')}
 var PTSRC=['Manufacturer patient assistance program','Foundation program','Specialty pharmacy','Other'],WHY=['Poor prognosis','Lack of benefit','Patient choice','Other'],PLANT=['Medicare','Medicare Advantage','Commercial','Medicaid'],PAST=['Not required','Pending','Approved','Denied','Expired'],PROVS=['Dr. Thompson','Dr. Shah','Dr. Falkenberry','Dr. Whitford','Dr. Funk','Dr. Shappell'],ADJ=['Dexamethasone implant 0.7 mg','Triamcinolone (intravitreal) 4 mg','Fluocinolone implant 0.19 mg','Fluocinolone implant 0.18 mg','Pegcetacoplan 15 mg','Avacincaptad pegol 2 mg'];
 function ago(w){var d=new Date();d.setDate(d.getDate()-7*w);return fmt(d)}
 function tdInit(p){if(p.td)return p.td;var i=p.id;p.td={prov:ST().prov,drops:i%3===1,bcl:i===2,pvp:false,ins:{name:'',type:PLANT[i%4],pa:i%2?'Approved':'Not required',exp:'',step:false}};
@@ -466,11 +475,13 @@ case'vi':openSheet('<h3>'+k+' · Vision and IOP history</h3><div class="hl">Visu
 case'read':if(e.read!==el.dataset.v){e.read=el.dataset.v;e.det=[];var rec=usualPlan(e);e.plan=rec||'Keep';}rePane(k);break;
 case'det':var dl=e.det||[];e.det=dl.indexOf(el.dataset.v)>=0?dl.filter(function(x){return x!==el.dataset.v}):dl.concat([el.dataset.v]);rePane(k);break;
 case'ocxc':e.ctx=ocxToggle(e.ctx,el.dataset.v);rePane(k);var inp=document.querySelector('#p'+k+' .ocx-t');if(inp){inp.focus();inp.setSelectionRange(inp.value.length,inp.value.length)}break;
-case'plan':e.plan=el.dataset.v;rePane(k);break;
-case'confirm':e.lastDrug=e.drug;e.lastIv=e.iv;var ni=newIv(e);if(e.plan==='Switch')e.drug=nextDrug(e);e.iv=ni;e.lastDate=fmt(new Date());e.lastRead=e.read==='Custom'?(e.ctx||'custom read'):e.read?('OCT '+e.read.toLowerCase()):e.lastRead;e.hist=e.hist.slice(1).concat(ni);e.done=true;
+case'plan':if(el.dataset.v==='Switch'){act('swpick',el);break}e.plan=el.dataset.v;rePane(k);break;
+case'swpick':var cur=nextDrug(e);openSheet('<h3><span class="bdt">'+k+'</span> Switch to</h3><p class="rech" style="margin:0 0 10px">Currently '+esc(dn(e.drug))+'. Interval carries over at '+Q(newIv({plan:'Keep',iv:e.iv}))+'.</p><div class="swl">'+Object.keys(NAMES).map(function(d){var c=d===e.drug;return '<button class="opt'+(e.plan==='Switch'&&d===cur&&!c?' on':'')+'" data-a="swto" data-k="'+k+'" data-v="'+esc(d)+'"'+(c?' disabled aria-disabled="true"':'')+'><span>'+esc(dn(d))+'</span>'+(c?'<span class="swt">Current</span>':bio(e.drug,d)?'<span class="swt">Biosimilar</span>':'')+'</button>'}).join('')+'</div><button class="b s" style="display:grid;margin-top:8px" data-a="close">Cancel</button>');break;
+case'swto':e.swTo=el.dataset.v;e.plan='Switch';closeSheet();rePane(k);toast(k+' switch to '+dn(e.swTo)+'.');break;
+case'confirm':e.lastDrug=e.drug;e.lastIv=e.iv;var ni=newIv(e);e.lastSw=null;if(e.plan==='Switch'){var to=nextDrug(e);e.lastSw={from:e.drug,to:to,bio:bio(e.drug,to)};e.drug=to;e.swTo=null}e.iv=ni;e.lastDate=fmt(new Date());e.lastRead=e.read==='Custom'?(e.ctx||'custom read'):e.read?('OCT '+e.read.toLowerCase()):e.lastRead;e.hist=e.hist.slice(1).concat(ni);e.done=true;
 if(done(p))p.status='Done';else if(p.status==='Scheduled'||p.status==='Checked in')p.status='In room';
 rePane('OD');rePane('OS');toast(k+' confirmed · '+Q(ni)+'');var o=k==='OD'?'OS':'OD';if(!done(p)&&p.eyes[o].treat&&!p.eyes[o].done)setTimeout(function(){go(o)},450);break;
-case'undo':e.done=false;e.drug=e.lastDrug||e.drug;e.iv=e.lastIv||e.iv;if(p.status==='Done')p.status='In room';rePane('OD');rePane('OS');break;
+case'undo':e.done=false;e.drug=e.lastDrug||e.drug;e.lastSw=null;e.iv=e.lastIv||e.iv;if(p.status==='Done')p.status='In room';rePane('OD');rePane('OS');break;
 case'reset':if(confirm('Reset all demo data?')){S={pts:demo(),view:'list',pid:null,eye:'OD',set:S.set};render()}break;}}
 document.addEventListener('input',function(ev){var i=ev.target;if(!i.classList||!i.classList.contains('ocx-t'))return;var p=P(),kk=i.dataset.k,ee=p&&kk?p.eyes[kk]:null;if(!ee)return;ee.ctx=i.value;document.querySelectorAll('#p'+kk+' [data-a=ocxc]').forEach(function(b){b.classList.toggle('on',ocxOn(i.value,b.dataset.v))});save()});
 document.addEventListener('click',function(ev){var el=ev.target.closest('[data-a]');if(!el)return;if(swiped){swiped=false;return}act(el.dataset.a,el)});
