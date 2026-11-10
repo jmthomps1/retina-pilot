@@ -331,6 +331,89 @@ html.wm20::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:2
 .out21t{font-size:12px;font-weight:600;border:1.5px solid rgba(255,255,255,.35);border-radius:999px;padding:1px 9px;color:var(--tx)}
 html.lt .out21t{border-color:#8A8278}
 button.pill.ou{cursor:pointer}
+
+/* ===== v23 phone: #346/#347/#355 muted eye, #348 extended sit item, #350 Cinder ===== */
+html{--fdp:1}html.fdL{--fdp:.7}html.fdS{--fdp:.45}html.fdV{--fdp:.32}
+html.mf .tile.obs,html.mf .card.hero.obs{opacity:1}
+.mutd{opacity:var(--fdp);transition:opacity .18s}
+.mutd.act23,.mutd:focus-within{opacity:1}
+.mw{margin-bottom:0}
+.mrow{display:flex;align-items:center;gap:10px;margin:-4px 4px 12px;min-height:44px}
+.mw .mrow{margin-top:-8px}
+.tdy{display:inline-flex;align-items:center;min-height:26px;padding:2px 10px;border-radius:13px;font-size:12px;font-weight:600;letter-spacing:.02em;color:var(--tx);box-shadow:inset 0 0 0 1px rgba(255,255,255,.34);background:rgba(255,255,255,.06)}
+.mubtn{min-height:44px;padding:0 14px;border-radius:22px;border:0;background:var(--s2);color:var(--tx);font-size:13px;font-weight:600;box-shadow:inset 0 0 0 1px rgba(255,255,255,.2)}
+.col23b{width:44px;height:44px;margin-left:auto;border:0;border-radius:12px;background:none;color:var(--tx);display:grid;place-items:center;cursor:pointer;flex:none}
+.col23b:before{content:"";width:9px;height:9px;border-right:2px solid currentColor;border-bottom:2px solid currentColor;transform:rotate(45deg) translate(-2px,-2px);transition:transform .22s}
+.col23b[aria-expanded=true]:before{transform:rotate(-135deg) translate(-2px,-2px)}
+.mbx{display:grid;grid-template-columns:44px 1fr auto 44px;grid-template-rows:auto auto;gap:4px 12px;align-items:center;padding:10px 6px 10px 16px;margin-bottom:12px;cursor:pointer}
+.mbx .bd{grid-column:1;grid-row:1}.mbx .mt{grid-column:2;grid-row:1;min-width:0}
+.mbx .mdrug{grid-column:3;grid-row:1;justify-self:end;font-size:12px;font-weight:600;padding:2px 10px;border-radius:13px;box-shadow:inset 0 0 0 1px rgba(255,255,255,.34);color:var(--tx);white-space:nowrap}
+.mbx .col23b{grid-column:4;grid-row:1;margin:0}
+.mbx .civ{grid-column:1 / 3;grid-row:2;display:flex;flex-direction:column;line-height:1.1}
+.mbx .civ i{font-style:normal;font-size:10px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--mu)}
+.mbx .civ b{font-size:20px;font-weight:600;color:#FFBE1A}
+.mbx .tdy{grid-column:3 / 5;grid-row:2;justify-self:end;margin-right:10px}
+.mbx .dx{font-size:15px}
+.mbx .eye{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--mu)}
+.seg.wrap4{flex-wrap:wrap}.seg.wrap4 button{flex:1 1 22%;font-size:13px;padding:0 6px}
+.mset23 .tdtg{margin-top:12px}
+.xs23{margin-top:2px;font-size:12.5px;color:var(--mu)}
+.sitb.add{background:none;box-shadow:inset 0 0 0 1px rgba(255,255,255,.34);border-style:dashed}
+html.lt .sitb.add{background:none;box-shadow:inset 0 0 0 1px #8A8278}
+@media (prefers-reduced-motion:reduce){.mutd,.col23b:before{transition:none}}
+html.lt .tdy{box-shadow:inset 0 0 0 1px #8A8278;background:#F4F0EA;color:#1A1A1C}
+html.lt .mubtn{background:#F4F0EA;color:#1A1A1C;box-shadow:inset 0 0 0 1px #8A8278}
+html.lt .mbx .mdrug{box-shadow:inset 0 0 0 1px #8A8278;color:#1A1A1C}
+html.lt .mbx .civ b{color:#B8480A}html.lt .mbx .civ i{color:#5F5A53}html.lt .mbx .eye{color:#5F5A53}
+html.lt .mbx{background:#FFFFFF!important;box-shadow:inset 4px 0 0 #8A8278,inset 0 0 0 1px #E9E4DC!important}
+html.lt .col23b{color:#1A1A1C}
+/* #350 Cinder: the Light palette on bone cards over a charcoal-to-taupe gradient. Text that sits on the gradient uses warm white. */
+html.cn{--bg:#F4F0E8;--s1:#F4F0E8;--s2:#E9E3D8;--tx:#26170A;--mu:#54402B;--fa:#5F4830}
+html.cn,html.cn body{background:transparent!important;color:#26170A}
+html.cn{background:radial-gradient(ellipse 90% 12% at 50% 64%,rgba(226,150,52,.35) 0%,rgba(226,150,52,0) 100%),radial-gradient(ellipse 55% 45% at 8% 8%,rgba(150,120,95,.4) 0%,rgba(150,120,95,0) 100%),linear-gradient(180deg,#2C2825 0%,#4A423B 55%,#6B5E52 100%)!important;background-attachment:fixed!important}
+html.cn .card,html.cn .hero,html.cn .lv,html.cn .tdc,html.cn .prow,html.cn .mbx{background:#F4F0E8!important;box-shadow:inset 0 0 0 1px #D8D0C2!important}
+html.cn .tile,html.cn .hero,html.cn .tdc[data-eye],html.cn .mbx{box-shadow:inset 4px 0 0 #8F3606,inset 0 0 0 1px #D8D0C2!important}
+html.cn .mbx{box-shadow:inset 4px 0 0 #6B5E52,inset 0 0 0 1px #D8D0C2!important}
+html.cn .bd,html.cn .bdt{color:#8F3606!important;border-right-color:#8F3606!important}
+html.cn .big,html.cn .iv,html.cn .mbx .civ b{color:#8F3606}
+html.cn .lnk,html.cn .tdone,html.cn .oct,html.cn .prow .tm,html.cn .abk,html.cn .octb,html.cn .octs{color:#6E4A00}
+html.cn .tdone,html.cn .octb.ok,html.cn .octs.ok,html.cn .cst .d,html.cn .b.ok{color:#1F5F25}
+html.cn .oct.q,html.cn .octb.q,html.cn .octs.q{color:#54402B}
+html.cn .sheet,html.cn .toast{background:#F4F0E8;color:#26170A}html.cn .toast{background:#26170A;color:#FFF4E2}
+html.cn .opt,html.cn .b.s,html.cn .dchip,html.cn .gear,html.cn .tab.on,html.cn .sitb,html.cn .mubtn,html.cn .tdy{background:#E9E3D8;color:#26170A;box-shadow:inset 0 0 0 1px #C6BCAB}
+html.cn .b.p,html.cn .seg button.on,html.cn .seg span.on{background:#F2B100!important;color:#26170A!important}
+html.cn .seg,html.cn .tabs,html.cn .notes,html.cn .st,html.cn .tag{background:#E9E3D8;box-shadow:inset 0 0 0 1px #D8D0C2}
+html.cn .ab{background:rgba(244,240,232,.96)}
+html.cn .dchip.on,html.cn .opt.on,html.cn .sitb.on,html.cn .swtg.on{color:#6E4A00;background:#F8EBCF;box-shadow:inset 0 0 0 1.5px #8F3606}
+html.cn .planl{background:#F8EBCF;box-shadow:inset 0 0 0 1px #D9B26A}html.cn .planl b,html.cn .rech b{color:#6E4A00}
+html.cn .tdin,html.cn .ocx-t,html.cn textarea{background:#FFFFFF;color:#26170A;box-shadow:inset 0 0 0 1px #C6BCAB}
+html.cn .pill.sc,html.cn .pill.ir,html.cn .pill.dn,html.cn .pill.ou,html.cn .pill.ci{background:#F4F0E8;color:#26170A;box-shadow:inset 0 0 0 1.5px #C6BCAB}
+html.cn .pill.ci:before{background:#26170A}
+html.cn .pill.dn{color:#1F5F25;box-shadow:inset 0 0 0 1.5px #1F5F25}
+html.cn .tab.on:after,html.cn .dots i.on{background:#8F3606}
+html.cn svg text{fill:#54402B}html.cn svg g text{fill:#26170A}html.cn svg rect{fill:#E9E3D8}
+html.cn .sitb.add{background:#E9E3D8;border-style:dashed}
+/* text that sits directly on the gradient */
+html.cn :is(.hd,.hd *,.sec.lab,.hint,.dots,.reset,.dctl,.dctl *,.tdt,.tdback,.dt,.dlab,.dar){color:#FFF4E2}
+html.cn .hd :is(.lnk,.bd,.bdt){color:#FFF4E2!important;text-decoration:underline;text-underline-offset:3px}
+html.cn .hd .bd,html.cn .hd .bdt{text-decoration:none;border-right-color:#FFF4E2!important}
+html.cn .hd :is(.octs,.octs.ok,.octs.un,.octs.q,.octs.nd,.prov){color:#FFF4E2!important}
+html.cn .hd .notes,html.cn .hd .notes *{color:#26170A!important}html.cn .hd .notes .lnk{color:#6E4A00!important}
+html.cn .hd .pill{background:#F4F0E8;color:#26170A;box-shadow:inset 0 0 0 1.5px #C6BCAB}
+html.cn .mrow .col23b{color:#FFF4E2}
+
+/* v24 #358 Extended sit timer: length arrow */
+.sitrow{gap:6px;align-items:center}
+.xsarr{min-height:44px;min-width:44px;border:0;border-radius:22px;background:var(--s2);color:var(--tx);font-size:14px;font-weight:600;box-shadow:inset 0 0 0 1px rgba(255,255,255,.14)}
+html.lt .xsarr{background:#F4F0EA;color:#1A1A1C;box-shadow:inset 0 0 0 1px #DCD5CA}
+html.cn .xsarr{background:#E9E3D8;color:#26170A;box-shadow:inset 0 0 0 1px #C6BCAB}
+.sitb.run{font-variant-numeric:tabular-nums}
+/* v24 #356 Cinder: filled and secondary buttons stay readable (AA) in every state */
+html.cn .b.p:focus-visible,html.cn .b.s:focus-visible,html.cn .sitb:focus-visible,html.cn .xsarr:focus-visible,html.cn .dchip:focus-visible,html.cn .opt:focus-visible{outline:2px solid #26170A;outline-offset:2px}
+html.cn .b.p:disabled,html.cn .b.p[aria-disabled=true]{background:#E9E3D8!important;color:#54402B!important;box-shadow:inset 0 0 0 1px #C6BCAB!important}
+html.cn .b.s:disabled,html.cn .sitb:disabled{background:#E9E3D8;color:#54402B}
+html.cn .b.p:active{background:#D99E00!important;color:#26170A!important}
+html.cn .sitb.fin{color:#1F5F25;background:#EAF3E6;box-shadow:inset 0 0 0 1.5px #1F5F25}
 </style></head><body>
 <div id="rpSplash" class="rp-splash" role="img" aria-label="Retina Pilot" title="Tap to skip">
 <svg class="sp-svg" xmlns="http://www.w3.org/2000/svg" viewBox="212 140 600 790" aria-hidden="true" focusable="false"><defs>
@@ -380,8 +463,8 @@ button.pill.ou{cursor:pointer}
 <script>window.RP_SW=true;</script><script>(function(){
 var KEY='rp-phone-v1',DRUGS=['Aflibercept 2 mg','Faricimab 6 mg','Aflibercept 8 mg','Ranibizumab 0.5 mg','Bevacizumab 1.25 mg','Brolucizumab 6 mg'];
 var NAMES={'Aflibercept 2 mg':['Eylea 2 mg','aflibercept 2 mg'],'Aflibercept 8 mg':['Eylea HD 8 mg','aflibercept 8 mg'],'Faricimab 6 mg':['Vabysmo 6 mg','faricimab-svoa 6 mg'],'Ranibizumab 0.5 mg':['Lucentis 0.5 mg','ranibizumab 0.5 mg'],'Bevacizumab 1.25 mg':['Avastin 1.25 mg','bevacizumab 1.25 mg'],'Brolucizumab 6 mg':['Beovu 6 mg','brolucizumab-dbll 6 mg'],'Ranibizumab implant 2 mg':['Susvimo 2 mg','ranibizumab port delivery implant 2 mg'],'Ranibizumab-nuna 0.5 mg':['Byooviz 0.5 mg','ranibizumab-nuna 0.5 mg'],'Ranibizumab-eqrn 0.5 mg':['Cimerli 0.5 mg','ranibizumab-eqrn 0.5 mg'],'Aflibercept-jbvf 2 mg':['Yesafili 2 mg','aflibercept-jbvf 2 mg'],'Aflibercept-ayyh 2 mg':['Pavblu 2 mg','aflibercept-ayyh 2 mg'],'Dexamethasone implant 0.7 mg':['Ozurdex 0.7 mg','dexamethasone intravitreal implant 0.7 mg'],'Fluocinolone implant 0.19 mg':['Iluvien 0.19 mg','fluocinolone acetonide intravitreal implant 0.19 mg'],'Fluocinolone implant 0.18 mg':['Yutiq 0.18 mg','fluocinolone acetonide intravitreal implant 0.18 mg'],'Pegcetacoplan 15 mg':['Syfovre 15 mg','pegcetacoplan 15 mg'],'Avacincaptad pegol 2 mg':['Izervay 2 mg','avacincaptad pegol 2 mg'],'Triamcinolone (intravitreal) 4 mg':['Triamcinolone (intravitreal) 4 mg','triamcinolone acetonide (intravitreal) 4 mg']};
-var SETD={amd:'nAMD',ga:'GA',dme:'DME',pdr:'PDR',npdr:'NPDR',brvo:'BRVO',crvo:'CRVO',eyes:'OD/OS',ou:'OU',thk:'CRT',names:'trade',ivs:'Q',theme:'dark',mute:'fade',prov:'Dr. Thompson'};
-function ST(){S.set=S.set||{};for(var k in SETD)if(S.set[k]==null)S.set[k]=SETD[k];return S.set}
+var SETD={amd:'nAMD',ga:'GA',dme:'DME',pdr:'PDR',npdr:'NPDR',brvo:'BRVO',crvo:'CRVO',eyes:'OD/OS',ou:'OU',thk:'CRT',names:'trade',ivs:'Q',theme:'dark',fade:'strong',muteNt:'on',msize:'full',prov:'Dr. Thompson'};
+function ST(){if(S&&S.set&&S.set.fade==null&&S.set.mute==='full')S.set.fade='off';S.set=S.set||{};for(var k in SETD)if(S.set[k]==null)S.set[k]=SETD[k];return S.set}
 function dn(x){var m=NAMES[x];if(!m)return x;return ST().names==='generic'?m[1]:m[0]}
 var TERM={amd:['nAMD','Wet AMD','Neovascular AMD'],ga:['GA','Dry AMD with GA'],dme:['DME','CI-DME','ciDME'],pdr:['PDR','Proliferative DR'],npdr:['NPDR','Nonproliferative DR'],brvo:['BRVO','Branch RVO'],crvo:['CRVO','Central RVO'],eyes:['OD/OS','Right/Left'],ou:['OU','Both eyes'],thk:['CRT','CST']};
 var TBASE={nAMD:'amd',GA:'ga',DME:'dme',PDR:'pdr',NPDR:'npdr',BRVO:'brvo',CRVO:'crvo'};
@@ -395,14 +478,23 @@ var STATUS=['Scheduled','Checked in','In room','Done'],SCL={'Scheduled':'sc','Ch
 var OCTS=['No OCT today','OCT needed','OCT done','OCT unable'],OCL={'No OCT today':'q','OCT needed':'','OCT done':'ok','OCT unable':'un'};
 function hist(iv,seed){var a=[],v=Math.max(4,iv-4+(seed%3)*2);for(var i=0;i<7;i++){a.push(v);v=Math.min(16,Math.max(4,v+((seed+i)%3===0?2:(seed+i)%4===1?-2:0)));}a.push(iv);return a}
 function E(dx,drug,iv,oct,va,iop,cst,seed,treat){return{dx:dx,drug:drug,iv:iv,oct:oct,va:va,iop:iop,cst:cst,cd:-(seed%9+3),treat:treat!==false,read:'',plan:'Keep',done:false,lastRead:['OCT stable','OCT improved','OCT stable','OCT worse'][seed%4],hist:hist(iv,seed),vah:[48,46,44,45,42,40].map(function(x,i){return x+(seed+i)%3*2}),ioph:[15,16,15,17,16,iop].map(function(x,i){return x+(seed+i)%2})}}
-function demo(){return[
+function demo(){var a=demo0();if(a[1])a[1].xsDef=2;return a}
+function demo0(){return[
 {id:1,time:'8:00',name:'Ingrid Solberg',age:63,sex:'F',mrn:'DEMO-401834',status:'Checked in',notes:'Prefers left-side seating.',eyes:{OD:E('DME','Aflibercept 2 mg',8,'OCT needed','20/40',16,312,1),OS:E('DME','Faricimab 6 mg',12,'No OCT today','20/30',15,288,2)}},
 {id:2,time:'8:15',name:'Walter Brennan',age:78,sex:'M',mrn:'DEMO-402117',status:'In room',notes:'Hard of hearing; speak slowly.',eyes:{OD:E('nAMD','Faricimab 6 mg',10,'OCT needed','20/50',14,341,3),OS:E('nAMD','Aflibercept 8 mg',16,'No OCT today','20/25',15,262,4)}},
 {id:3,time:'8:30',name:'Marisol Quintero',age:55,sex:'F',mrn:'DEMO-402560',status:'Scheduled',notes:'',eyes:{OD:E('PDR','Aflibercept 2 mg',6,'OCT needed','20/60',18,355,5),OS:E('DME','Bevacizumab 1.25 mg',4,'OCT needed','20/40',17,330,6)}},
 {id:4,time:'8:45',name:'Harold Ng',age:82,sex:'M',mrn:'DEMO-403002',status:'Scheduled',notes:'Driver waiting in lobby.',eyes:{OD:E('nAMD','Ranibizumab 0.5 mg',8,'OCT needed','20/70',13,298,7),OS:E('GA','—',0,'No OCT today','20/30',14,250,8,false)}},
 {id:5,time:'9:00',name:'Evelyn Carter',age:70,sex:'F',mrn:'DEMO-403318',status:'Scheduled',notes:'',eyes:{OD:E('BRVO-ME','Aflibercept 2 mg',12,'No OCT today','20/30',15,276,9),OS:E('Normal','—',0,'No OCT today','20/20',15,240,10,false)}},
 {id:6,time:'9:15',name:'Samuel Okafor',age:67,sex:'M',mrn:'DEMO-403741',status:'Scheduled',notes:'Prefers morning visits.',eyes:{OD:E('Normal','—',0,'No OCT today','20/25',16,245,11,false),OS:E('CRVO-ME','Faricimab 6 mg',8,'OCT needed','20/80',19,402,12)}},
-{id:7,time:'9:30',name:'Ruth Lindqvist',age:74,sex:'F',mrn:'DEMO-404105',status:'Scheduled',notes:'',eyes:{OD:E('nAMD','Aflibercept 8 mg',14,'No OCT today','20/40',14,280,13),OS:E('nAMD','Aflibercept 8 mg',12,'OCT needed','20/50',15,301,14)}}]}
+{id:7,time:'9:30',name:'Ruth Lindqvist',age:74,sex:'F',mrn:'DEMO-404105',status:'Scheduled',notes:'',eyes:{OD:E('nAMD','Aflibercept 8 mg',14,'No OCT today','20/40',14,280,13),OS:E('nAMD','Aflibercept 8 mg',12,'OCT needed','20/50',15,301,14)}},
+{id:8,time:'9:45',name:'Cornelius Vandermeer',age:81,sex:'M',mrn:'DEMO-404522',status:'Checked in',notes:'Uses a walker.',eyes:{OD:E('nAMD','Aflibercept 2 mg',8,'OCT needed','20/60',14,320,15),OS:E('GA','—',0,'No OCT today','20/40',13,255,16,false)}},
+{id:9,time:'10:00',name:'Imelda Santoro',age:69,sex:'F',mrn:'DEMO-404871',status:'Scheduled',notes:'',eyes:{OD:E('DME','Faricimab 6 mg',12,'No OCT today','20/30',15,290,17),OS:E('DME','Faricimab 6 mg',12,'No OCT today','20/30',15,284,18)}},
+{id:10,time:'10:15',name:'Thaddeus Wren',age:76,sex:'M',mrn:'DEMO-405206',status:'In room',notes:'',eyes:{OD:E('PDR','Bevacizumab 1.25 mg',6,'OCT needed','20/50',17,349,19),OS:E('PDR','Aflibercept 2 mg',8,'No OCT today','20/40',16,318,20)}},
+{id:11,time:'10:30',name:'Philomena Duarte',age:73,sex:'F',mrn:'DEMO-405533',status:'Scheduled',notes:'Snowbird: one injection was given elsewhere over the winter.',eyes:{OD:Object.assign(E('nAMD','Aflibercept 8 mg',12,'OCT needed','20/40',15,285,21),{out:[{id:'odemo11',date:iso(new Date(Date.now()-86400000*7*14)),drug:'Aflibercept 8 mg',place:'Winter residence (fictional)',by:'JT',at:''}]}),OS:E('Normal','—',0,'No OCT today','20/25',15,241,22,false)}},
+{id:12,time:'10:45',name:'Lionel Abernathy',age:84,sex:'M',mrn:'DEMO-405914',status:'Scheduled',notes:'',eyes:{OD:E('Normal','—',0,'No OCT today','20/30',14,244,23,false),OS:E('nAMD','Faricimab 6 mg',16,'No OCT today','20/50',14,270,24)}},
+{id:13,time:'11:00',name:'Beatrix Halloran',age:66,sex:'F',mrn:'DEMO-406238',status:'Scheduled',notes:'',eyes:{OD:E('BRVO-ME','Ranibizumab 0.5 mg',8,'OCT needed','20/60',16,372,25),OS:E('BRVO-ME','Ranibizumab 0.5 mg',8,'OCT needed','20/50',15,355,26)}},
+{id:14,time:'11:15',name:'Orville Pendleton',age:79,sex:'M',mrn:'DEMO-406677',status:'Scheduled',notes:'',eyes:{OD:E('GA','Pegcetacoplan 15 mg',8,'No OCT today','20/70',13,230,27),OS:E('GA','—',0,'No OCT today','20/80',14,226,28,false)}},
+{id:15,time:'11:30',name:'Genevieve Archambault',age:71,sex:'F',mrn:'DEMO-407019',status:'Done',notes:'',eyes:{OD:Object.assign(E('nAMD','Aflibercept 2 mg',10,'OCT done','20/40',14,278,29),{done:true,lastAct:{a:10,b:10,f:'Aflibercept 2 mg',t:null,only:false}}),OS:Object.assign(E('nAMD','Aflibercept 2 mg',10,'OCT done','20/40',15,281,30),{done:true,lastAct:{a:10,b:10,f:'Aflibercept 2 mg',t:null,only:false}})}}]}
 var S;try{S=JSON.parse(localStorage.getItem(KEY))}catch(e){}
 if(!S||!S.pts)S={pts:demo(),view:'list',pid:null,eye:'OD'};
 function save(){try{localStorage.setItem(KEY,JSON.stringify(S))}catch(e){}}
@@ -463,17 +555,19 @@ var LOGO=document.getElementById('logoTpl').innerHTML;
 function bar(back,gear){return '<div class="ab">'+(back?'<button class="abk" data-a="'+back+'" aria-label="Back">‹</button>':'')+LOGO+'<span class="wm">RETINA PILOT</span>'+(S.view!=='set'?'<button class="gear" data-a="settings" aria-label="Settings"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/></svg></button>':'')+'<span class="av">JT</span>'+'</div>'}
 function header(p){var t=treating(p),o=octTop(p);return '<div class="hd"><div class="chips"><button class="pill '+SCL[p.status]+'" data-a="status">'+p.status.toUpperCase()+'</button>'+(txEyes(p).length?'<button class="pill ou" data-a="txmenu" aria-haspopup="dialog" title="Treating today: tap to change">'+(t?'TREATING '+eyeL(t).toUpperCase():'NOT TREATING TODAY')+'</button>':(t?'<span class="pill ou">TREATING '+eyeL(t).toUpperCase()+'</span>':''))+(o?'<button class="octs '+o.c+'" data-a="octtop" aria-haspopup="dialog" title="OCT today: tap to change">'+(o.c==='ok'?'<span aria-hidden="true">\u2713 </span>':'')+esc(o.t)+'</button>':'')+'<span class="prov">'+esc(p.prov||'Dr. Thompson')+'</span></div><div class="name disp">'+esc(p.name)+'</div><div class="meta num"><span>'+p.age+' '+p.sex+' · '+p.mrn+'</span><button class="lnk" data-a="td">♥ Treatment Details</button></div><div class="notes"><span>'+(p.notes?'Notes · '+esc(p.notes):'No notes')+'</span><button class="lnk" style="padding:0 12px" data-a="notes">Edit</button></div></div>'}
 function vList(){var d=new Date().toLocaleDateString('en-US',{weekday:'long',month:'long',day:'numeric'});
-var L=dayPts(VD);return bar()+'<div class="wrap sched"><div class="dctl"><button class="dar" data-a="dprev" aria-label="Previous day">‹</button><label class="dbtn disp"><span class="dlab">'+dLab(VD)+'</span><input type="date" class="dpick" value="'+VD+'" aria-label="Choose schedule date"></label><button class="dar" data-a="dnext" aria-label="Next day">›</button></div>'+(VD!==TODAY?'<button class="dtoday" data-a="dtoday">Today</button>':'')+'<div class="dt">'+L.length+' patient'+(L.length===1?'':'s')+' · '+esc(ST().prov)+'</div>'+(L.length?'':'<div class="dempty">No patients scheduled.</div>')+L.map(function(p){var t=treating(p);return '<button class="prow'+(p.status==='Done'?' done':'')+'" data-a="open" data-id="'+p.id+'"><span class="tm num">'+p.time+'</span><span><div class="nm">'+esc(p.name)+'</div><div class="sb2">'+p.age+' '+p.sex+(t?' · Treating '+eyeL(t):'')+' · '+['OD','OS'].filter(function(k){return p.eyes[k].treat}).map(function(k){return eyeL(k)+' '+Q(p.eyes[k].iv)+''}).join(' · ')+'</div></span><span class="pill '+SCL[p.status]+'">'+p.status.toUpperCase()+'</span></button>'}).join('')+(VD===TODAY?'<button class="reset" data-a="reset">Reset demo data</button>':'')+'</div>'}
+var L=dayPts(VD);return bar()+'<div class="wrap sched"><div class="dctl"><button class="dar" data-a="dprev" aria-label="Previous day">‹</button><label class="dbtn disp"><span class="dlab">'+dLab(VD)+'</span><input type="date" class="dpick" value="'+VD+'" aria-label="Choose schedule date"></label><button class="dar" data-a="dnext" aria-label="Next day">›</button></div>'+(VD!==TODAY?'<button class="dtoday" data-a="dtoday">Today</button>':'')+'<div class="dt">'+L.length+' patient'+(L.length===1?'':'s')+' · '+esc(ST().prov)+'</div>'+(L.length?'':'<div class="dempty">No patients scheduled.</div>')+L.map(function(p){var t=treating(p);return '<button class="prow'+(p.status==='Done'?' done':'')+'" data-a="open" data-id="'+p.id+'"><span class="tm num">'+p.time+'</span><span><div class="nm">'+esc(p.name)+'</div><div class="sb2">'+p.age+' '+p.sex+(t?' · Treating '+eyeL(t):'')+' · '+['OD','OS'].filter(function(k){return p.eyes[k].treat}).map(function(k){return eyeL(k)+' '+Q(p.eyes[k].iv)+''}).join(' · ')+'</div>'+(xsNote(p)?'<div class="xs23">'+xsNote(p)+'</div>':'')+'</span><span class="pill '+SCL[p.status]+'">'+p.status.toUpperCase()+'</span></button>'}).join('')+(VD===TODAY?'<button class="reset" data-a="reset">Reset demo data</button>':'')+'</div>'}
 
 /* v20 #313: one OCT status for the visit (header), from the per-eye records */
 function octEyes(p){return ['OD','OS'].filter(function(k){return p.eyes[k].treat}).map(function(k){return {k:k,st:p.eyes[k].oct}})}
-function octTop(p){var L=octEyes(p);if(!L.length)return null;function f(x){return L.filter(function(z){return z.st===x})}function j(A){return A.length===2?ouL():A.map(function(z){return eyeL(z.k)}).join(' ')}
+/* v23 phone #345: "OCT done" never names an eye; an eye is named only when one eye could not be imaged */
+function octAll(p){return ['OD','OS'].filter(function(k){var e=p.eyes[k];return e.treat||e.oct==='OCT done'||e.oct==='OCT unable'}).map(function(k){return {k:k,st:p.eyes[k].oct}})}
+function octTop(p){if(!octEyes(p).length)return null;var L=octAll(p);function f(x){return L.filter(function(z){return z.st===x})}
 var nd=f('OCT needed'),dn=f('OCT done'),un=f('OCT unable');
-if(nd.length)return{t:'OCT needed',c:'nd'};if(dn.length===L.length)return{t:'OCT done',c:'ok'};
-if(dn.length&&un.length)return{t:'OCT done '+j(dn)+', unable '+j(un),c:'ok'};if(un.length===L.length)return{t:'OCT unable'+(L.length===2?' '+ouL():''),c:'un'};
-if(dn.length)return{t:'OCT done '+j(dn),c:'ok'};if(un.length)return{t:'OCT unable '+j(un),c:'un'};return{t:'No OCT today',c:'q'}}
-function octOpts(p){var L=octEyes(p).map(function(z){return z.k});if(L.length===2)return[['OCT done:OCT done','OCT done '+ouL()],['OCT done:OCT unable','OCT done '+eyeL('OD')+', unable '+eyeL('OS')],['OCT unable:OCT done','OCT done '+eyeL('OS')+', unable '+eyeL('OD')],['OCT unable:OCT unable','OCT unable '+ouL()],['No OCT today:No OCT today','No OCT today']];
-var k=L[0];return[['OCT done','OCT done '+eyeL(k)],['OCT unable','OCT unable '+eyeL(k)],['No OCT today','No OCT today']]}
+if(nd.length)return{t:'OCT needed',c:'nd'};
+if(dn.length&&un.length)return{t:'OCT '+dn.map(function(z){return eyeL(z.k)}).join(' ')+' done \u00b7 '+un.map(function(z){return eyeL(z.k)}).join(' ')+' unable',c:'ok'};
+if(dn.length)return{t:'OCT done',c:'ok'};if(un.length)return{t:'OCT unable',c:'un'};return{t:'No OCT today',c:'q'}}
+function octOpts(p){var L=octEyes(p).map(function(z){return z.k});if(L.length===2)return[['OCT done:OCT done','OCT done'],['OCT done:OCT unable','OCT '+eyeL('OD')+' done \u00b7 '+eyeL('OS')+' unable'],['OCT unable:OCT done','OCT '+eyeL('OS')+' done \u00b7 '+eyeL('OD')+' unable'],['OCT unable:OCT unable','OCT unable'],['No OCT today:No OCT today','No OCT today']];
+return[['OCT done','OCT done'],['OCT unable','OCT unable'],['No OCT today','No OCT today']]}
 function noOct(e){return e.treat&&(e.oct==='No OCT today'||e.oct==='OCT unable')}
 /* v20 #315: interval corrections fix the record only (Last visit and the chart keep the given history) */
 var IVC=[2,4,5,6,7,8,9,10,11,12,13,14,15,16,18,20];
@@ -484,18 +578,41 @@ var PDX=['nAMD','GA','DME','NPDR','PDR','BRVO-ME','CRVO-ME','Dry AMD','Normal'];
 /* v20 #312: extended sit, 1 to 10 minutes, picked at tap time; practice default in Settings */
 function sitDef(){var m=+(ST().sitm||2);return Math.max(1,Math.min(10,m||2))}
 function mmss(ms){ms=Math.max(0,ms);var s2=Math.ceil(ms/1000);return Math.floor(s2/60)+':'+('0'+s2%60).slice(-2)}
-function sitHtml(e,k){if(!e.treat||e.done)return '';if(e.sit){var left=e.sit.end-Date.now();return '<div class="sitrow"><button class="sitb on'+(left<=0?' fin':'')+'" data-a="sithalt" data-k="'+k+'" data-sitend="'+e.sit.end+'" title="'+(left<=0?'Sit complete: tap to clear':'Tap to halt the extended sit')+'">'+(left<=0?'Sit complete':'Extended sit \u00b7 <span class="num" data-cd="'+e.sit.end+'">'+mmss(left)+'</span>')+'</button></div>'}
-return '<div class="sitrow"><button class="sitb" data-a="sit" data-k="'+k+'" aria-haspopup="dialog">Extended sit \u00b7 '+sitDef()+' min</button></div>'}
-setInterval(function(){var L=document.querySelectorAll('[data-sitend]');for(var i=0;i<L.length;i++){var b=L[i],en=+b.dataset.sitend,c=b.querySelector('[data-cd]');if(en<=Date.now()){if(!b.classList.contains('fin')){b.classList.add('fin');b.textContent='Sit complete';b.title='Sit complete: tap to clear'}}else if(c){var t2=mmss(en-Date.now());if(c.textContent!==t2)c.textContent=t2}}},500);
+/* v23 phone #348 / v24 #358: Extended sit is an optional item in the Anesthesia area, never a status. v24: tap the item to start the m:ss countdown at the saved length ("Sit complete" at the end, no sound on the phone); tap the running pill to halt and clear it; the arrow opens the 1 to 10 min picker, whose choice starts or restarts the countdown and is saved as the patient default. Length 1 to 10 min, saved as the patient default. */
+function xsLen(p,e){return e.xs===0?0:(e.xs!=null?e.xs:(p.xsDef||0))}
+function xsFmt(ms){var t=Math.max(0,Math.ceil(ms/1000)),m=Math.floor(t/60),r=t%60;return m+':'+(r<10?'0':'')+r}
+function sitHtml(e,k,p){if(!e.treat||e.done)return '';var n=xsLen(p,e);if(!n)return '<div class="sitrow"><button class="sitb add" data-a="xsadd" data-k="'+k+'">+ Extended sit</button></div>';
+var arr='<button class="xsarr" data-a="xsmenu" data-k="'+k+'" aria-haspopup="dialog" aria-label="Choose the extended sit length for '+eyeL(k)+', 1 to 10 minutes">\u25be</button>',r=e.xsT,main;
+if(r){var end=r.s+r.len,fin=end<=Date.now();main=fin?'<button class="sitb fin run" data-a="xshalt" data-k="'+k+'" aria-label="Sit complete. Tap to clear">Sit complete</button>':'<button class="sitb on run" data-a="xshalt" data-k="'+k+'" aria-label="Extended sit running. Tap to stop and clear">Extended sit \u00b7 <span class="xstk" data-end="'+end+'">'+xsFmt(end-Date.now())+'</span></button>'}
+else main='<button class="sitb on" data-a="xsgo" data-k="'+k+'" aria-label="Start the extended sit timer, '+n+' minutes">Extended sit \u00b7 '+n+' min</button>';
+return '<div class="sitrow">'+main+arr+'</div>'}
+setInterval(function(){var n=Date.now(),hit=0;document.querySelectorAll('.xstk').forEach(function(s){var r=+s.dataset.end-n;if(r<=0)hit=1;else s.textContent=xsFmt(r)});if(hit&&P()){rePane('OD');rePane('OS');toast('Sit complete')}},1000)
+function xsNote(p){var n=0;['OD','OS'].forEach(function(k){var e=p.eyes[k];if(e.treat)n=Math.max(n,xsLen(p,e))});return n?'Extended sit '+n+' min':''}
+
 /* v20 #314: Color temperature (same range and warm overlay as the desktop; saved on this phone) */
 function kelvin(v){v=Math.max(0,Math.min(100,+v||0));var m=1e6/6500+v*((1e6/1200-1e6/6500)/100);return Math.round(1e6/m/100)*100}
 function warm(){var t=ST(),R=document.documentElement,on=!!t.wmOn&&+t.wm>0;R.classList.toggle('wm20',on);if(on){var x=Math.max(0,Math.min(100,+t.wm))/100,g=Math.round(255-232*Math.pow(x,1.05)),c=Math.min(g,Math.round(g*Math.pow(1-x,1.15)));R.style.setProperty('--wm20','rgb(255,'+g+','+c+')')}else R.style.removeProperty('--wm20')}
 function eyeStatus(e){return e.treat?(e.done?'<span class="tdone">✓ Confirmed</span>':'<span class="oct q">To confirm</span>'):'<span class="oct q">Observation</span>'}
-function vSum(p){return bar('list')+header(p)+'<div class="wrap"><div class="sec lab"><span>Today · tap an eye</span><span>'+(treating(p)?'Treating '+eyeL(treating(p)):'Observation')+'</span></div>'+['OD','OS'].map(function(k){var e=p.eyes[k];return '<button class="card tile'+(e.treat?'':' obs')+'" data-a="eye" data-k="'+k+'"><span class="bd">'+eyeL(k)+'</span><div><div class="dx disp">'+esc(dxl(e.dx))+'</div><div class="drug">'+(e.treat?esc(dn(e.drug)):'Not treating')+'</div></div><div style="display:flex;align-items:center;gap:8px">'+(e.treat?'<span class="iv big disp">'+Qb(e.iv)+'</span>':'')+'<span class="chev">›</span></div><div class="foot num"><span>'+eyeStatus(e)+'</span><span>'+(e.treat?'Last '+lastDate(e):'VA '+e.va)+'</span></div></button>'}).join('')+'<div class="btns"><button class="b s" data-a="list">Schedule</button><button class="b p" data-a="next">Next patient</button></div></div>'}
+/* v23 phone #346/#347/#355: Not due / Not treating eye: fade strength, mute switch, per-eye Unmute, collapsible box (option D content) */
+function hasTx(e){return !!(e.drug&&NAMES[e.drug]&&e.iv>0)}
+function dueTxt(e){try{var d=new Date(lastDate(e));if(isNaN(d))return '';d.setDate(d.getDate()+7*e.iv);return d.toLocaleDateString('en-US',{month:'short',day:'numeric'})}catch(_){return ''}}
+function mbadge(e){if(hasTx(e)){var t=dueTxt(e);return 'Not due'+(t?' \u00b7 due '+t:'')}return 'Not treating'}
+function isMut(e){return !e.treat&&e.mu!=='off'&&(hasTx(e)||ST().muteNt!=='off')}
+function isCol(e){return isMut(e)&&ST().msize==='collapsed'&&!e.colOpen}
+function mrow(p,k){var e=p.eyes[k];if(!isMut(e)&&e.mu!=='off')return '';var m=isMut(e),col=m&&ST().msize==='collapsed';
+return '<div class="mrow"><span class="tdy nd">'+mbadge(e)+'</span><button class="mubtn" data-a="mutetog" data-k="'+k+'" aria-pressed="'+m+'">'+(m?'Unmute':'Mute')+'</button>'+(col?'<button class="col23b" data-a="coltog" data-k="'+k+'" aria-expanded="true" aria-controls="mc'+k+'" aria-label="Collapse the '+eyeL(k)+' card ('+mbadge(e)+')"></button>':'')+'</div>'}
+function mbox(p,k,tile){var e=p.eyes[k],tx=hasTx(e);
+return '<div class="card mbx obs" id="mc'+k+'"'+(tile?' data-a="eye" data-k="'+k+'"':'')+'><span class="bd">'+eyeL(k)+'</span><div class="mt"><div class="eye">'+(k==='OD'?'Right eye':'Left eye')+'</div><div class="dx disp">'+esc(dxl(e.dx))+'</div></div>'+(tx?'<span class="mdrug">'+esc(dn(e.drug))+'</span>':'<span></span>')+
+'<button class="col23b" data-a="coltog" data-k="'+k+'" aria-expanded="false" aria-controls="mc'+k+'" aria-label="Expand the '+eyeL(k)+' card ('+mbadge(e)+')"></button>'+(tx?'<div class="civ"><i>Current interval</i><b class="disp">'+Qb(e.iv)+'</b></div>':'<span></span>')+'<span class="tdy nd">'+mbadge(e)+'</span></div>'}
+function mtile(p,k){var e=p.eyes[k];if(!isMut(e)&&e.mu!=='off')return '';if(isCol(e))return mbox(p,k,true);var m=isMut(e);
+return '<div class="mw" id="mc'+k+'">'+tile0(p,k,m)+mrow(p,k)+'</div>'}
+function tile0(p,k,m){var e=p.eyes[k];return '<button class="card tile'+(e.treat?'':' obs')+(m?' mutd':'')+'" data-a="eye" data-k="'+k+'"><span class="bd">'+eyeL(k)+'</span><div><div class="dx disp">'+esc(dxl(e.dx))+'</div><div class="drug">'+(e.treat?esc(dn(e.drug)):'Not treating')+'</div></div><div style="display:flex;align-items:center;gap:8px">'+(e.treat?'<span class="iv big disp">'+Qb(e.iv)+'</span>':'')+'<span class="chev">›</span></div><div class="foot num"><span>'+eyeStatus(e)+'</span><span>'+(e.treat?'Last '+lastDate(e):'VA '+e.va)+'</span></div></button>'}
+function vSum(p){return bar('list')+header(p)+'<div class="wrap"><div class="sec lab"><span>Today · tap an eye</span><span>'+(treating(p)?'Treating '+eyeL(treating(p)):'Observation')+'</span></div>'+['OD','OS'].map(function(k){var e=p.eyes[k];if(!e.treat){var mt=mtile(p,k);if(mt)return mt}return tile0(p,k,false)}).join('')+'<div class="btns"><button class="b s" data-a="list">Schedule</button><button class="b p" data-a="next">Next patient</button></div></div>'}
 function pane(p,k){var e=p.eyes[k],o=k==='OD'?'OS':'OD',eye=k==='OD'?'Right eye':'Left eye',h='';
-h+='<div class="card hero'+(e.treat?'':' obs')+'"><div class="r"><span class="bd">'+eyeL(k)+'</span><div><div class="eye">'+eye+'</div><div class="dx disp">'+esc(dxl(e.dx))+'</div></div>'+(e.treat?'<div class="ivb"><button class="iv big disp ivfix" data-a="ivfix" data-k="'+k+'" aria-haspopup="dialog" aria-label="Current interval '+Q(e.iv)+'. Tap to correct">'+Qb(e.iv)+'</button><div class="cap">CURRENT INTERVAL'+(e.ivFix?' \u00b7 CORRECTED':'')+'</div><button class="plus plus20" data-a="series" aria-label="Add series">+</button></div>':'<div class="ivb"><div class="cap">NOT TREATING</div></div>')+'</div><div class="ft">'+(e.treat?'<span></span>':'<span class="oct q">Observation</span>')+'<span style="align-self:center">'+(e.treat?esc(dn(e.drug)):'')+'</span></div></div>'+sitHtml(e,k);
+if(!e.treat&&isCol(e))return mbox(p,k,false)+'<div class="dots"><i class="'+(k==='OD'?'on':'')+'"></i><i class="'+(k==='OS'?'on':'')+'"></i></div><div class="hint">Swipe for '+eyeL(o)+'</div>';
+h+='<div class="card hero'+(e.treat?'':' obs')+(!e.treat&&isMut(e)?' mutd':'')+'"'+(e.treat?'':' id="mc'+k+'"')+'><div class="r"><span class="bd">'+eyeL(k)+'</span><div><div class="eye">'+eye+'</div><div class="dx disp">'+esc(dxl(e.dx))+'</div></div>'+(e.treat?'<div class="ivb"><button class="iv big disp ivfix" data-a="ivfix" data-k="'+k+'" aria-haspopup="dialog" aria-label="Current interval '+Q(e.iv)+'. Tap to correct">'+Qb(e.iv)+'</button><div class="cap">CURRENT INTERVAL'+(e.ivFix?' \u00b7 CORRECTED':'')+'</div><button class="plus plus20" data-a="series" aria-label="Add series">+</button></div>':'<div class="ivb"><div class="cap">NOT TREATING</div></div>')+'</div><div class="ft">'+(e.treat?'<span></span>':'<span class="oct q">Observation</span>')+'<span style="align-self:center">'+(e.treat?esc(dn(e.drug)):'')+'</span></div></div>'+(e.treat?'':mrow(p,k))+sitHtml(e,k,p);
 if(e.treat)h+='<div class="card lv"><div class="hdr"><span class="lab">Last visit</span><span class="cap num" style="margin:0">'+lastDate(e)+'</span></div><div class="lvl num">'+lastLine(e,k)+'</div></div>';
-h+='<button class="card vi" data-a="vi" data-k="'+k+'"><div class="hdr"><span class="lab">Vision / IOP</span><span class="chev">›</span></div><div class="stats"><div class="st"><div class="k">VA</div><div style="display:flex;justify-content:space-between;align-items:flex-end"><span class="v disp num">'+e.va+'</span>'+spark(e.vah)+'</div></div><div class="st"><div class="k">IOP</div><div style="display:flex;justify-content:space-between;align-items:flex-end"><span class="v disp num">'+e.iop+'<span class="u">mmHg</span></span>'+spark(e.ioph)+'</div></div></div><div class="cap" style="margin-top:8px">Tap for history and graph</div></button>';
+h+='<button class="card vi'+(!e.treat&&isMut(e)?' mutd':'')+'" data-a="vi" data-k="'+k+'"><div class="hdr"><span class="lab">Vision / IOP</span><span class="chev">›</span></div><div class="stats"><div class="st"><div class="k">VA</div><div style="display:flex;justify-content:space-between;align-items:flex-end"><span class="v disp num">'+e.va+'</span>'+spark(e.vah)+'</div></div><div class="st"><div class="k">IOP</div><div style="display:flex;justify-content:space-between;align-items:flex-end"><span class="v disp num">'+e.iop+'<span class="u">mmHg</span></span>'+spark(e.ioph)+'</div></div></div><div class="cap" style="margin-top:8px">Tap for history and graph</div></button>';
 if(e.treat){h+='<div class="card"><div class="hdr"><span class="lab">Interval history</span><span class="cap" style="margin:0">2 YR</span></div>'+chart(e.hist,k,0,chart.iv)+'</div>';
 h+='<button class="card crtb" data-a="crt" data-k="'+k+'"><div class="hdr"><span class="lab">'+thk()+'</span>'+(e.crtT!=null?'<span class="cap" style="margin:0">Today '+e.crtT+' µm</span>':'')+'<span class="chev">›</span></div><div class="cst num"><span class="v disp">'+e.cst+'<span class="u" style="font-size:13px;color:var(--mu);font-family:inherit"> µm</span></span><span class="d">'+(e.cd>0?'+':'')+e.cd+' µm</span></div><div class="cap" style="margin-top:8px">Tap for 2-year trend</div></button>';
 if(noOct(e))h+='<div class="card"><div class="hdr"><span class="lab">OCT read</span></div><div class="noct20">'+(e.oct==='OCT unable'?'OCT unable':'No OCT today')+'</div><div class="rech">Usual step: <b>Keep '+Q(e.iv)+'</b> (as the series dictates). Shorten or Extend to override.</div></div>';else{
@@ -561,22 +678,27 @@ function vSet(){var t=ST(),bk=S.setFrom&&S.setFrom!=='list'?'Back to patient':'B
 '<div class="tsub">Drug names</div><div class="seg">'+sopt('names','trade','Trade names')+sopt('names','generic','Generic names')+'</div><p class="tdl mu">Example: '+esc(dn('Aflibercept 2 mg'))+' \u00b7 '+esc(dn('Faricimab 6 mg'))+'</p>'+
 '<div class="tsub">Intervals</div><div class="seg">'+sopt('ivs','Q','Q8W')+sopt('ivs','q','q8w')+sopt('ivs','every','every 8 weeks')+'</div>'+
 '<div class="tsub">Diagnoses</div>'+trow('amd','Neovascular AMD')+trow('ga','Geographic atrophy')+trow('dme','Diabetic macular edema')+trow('pdr','Proliferative DR')+trow('npdr','Nonproliferative DR')+trow('brvo','Branch RVO')+trow('crvo','Central RVO')+
-'<div class="tsub">Eyes and measurements</div>'+trow('eyes','Eye labels')+trow('ou','Both eyes')+trow('thk','Retinal thickness')+'</div>'+'<div class="tdc gen"><div class="tdsl" style="margin-top:0">Theme</div><div class="seg">'+sopt('theme','dark','Dark')+sopt('theme','light','Light')+'</div></div>'+
+'<div class="tsub">Eyes and measurements</div>'+trow('eyes','Eye labels')+trow('ou','Both eyes')+trow('thk','Retinal thickness')+'</div>'+'<div class="tdc gen"><div class="tdsl" style="margin-top:0">Theme</div><div class="seg">'+sopt('theme','dark','Dark')+sopt('theme','light','Light')+sopt('theme','cinder','Cinder')+'</div></div>'+
 '<div class="tdc gen disp20"><div class="tdsl" style="margin-top:0">Display</div><label class="tdtg"><input type="checkbox" id="wmOn" data-wm="on"'+(t.wmOn?' checked':'')+'><span>Color temperature</span></label><div class="wmr"><input type="range" id="wmR" data-wm="r" min="0" max="100" value="'+(t.wm==null?40:t.wm)+'" aria-label="Color temperature"'+(t.wmOn?'':' disabled')+'><span class="wmk num" id="wmK" aria-live="polite">'+kelvin(t.wmOn?(t.wm==null?40:t.wm):0)+' K</span></div><p class="tdl mu">Warms the whole screen for a dim room. Saved on this phone.</p></div>'+
-'<div class="tdc gen"><label class="tdf" style="margin-top:0"><span>Extended sit default</span><select class="tdin" data-set="sitm" aria-label="Extended sit default">'+[1,2,3,4,5,6,7,8,9,10].map(function(n){return '<option value="'+n+'"'+(n===sitDef()?' selected':'')+'>'+n+' min</option>'}).join('')+'</select></label><p class="tdl mu">Pick 1 to 10 minutes on the eye card when starting the timer.</p></div>'+
-'<div class="tdc gen"><div class="tdsl" style="margin-top:0">Not-due eye</div><div class="seg">'+sopt('mute','full','Full')+sopt('mute','fade','Muted')+'</div><p class="tdl mu">When only one eye is treated, the other card can stay full or be muted.</p></div>'+
+'<div class="tdc gen"><label class="tdf" style="margin-top:0"><span>Extended sit default</span><select class="tdin" data-set="sitm" aria-label="Extended sit default">'+[1,2,3,4,5,6,7,8,9,10].map(function(n){return '<option value="'+n+'"'+(n===sitDef()?' selected':'')+'>'+n+' min</option>'}).join('')+'</select></label><p class="tdl mu">Starting length when you add + Extended sit on an eye card (1 to 10 minutes). Each patient then keeps their own length.</p></div>'+
+'<div class="tdc gen mset23"><div class="tdsl" style="margin-top:0">Not-due and Not-treating eye</div><div class="tsub">Size</div><div class="seg">'+sopt('msize','full','Full')+sopt('msize','collapsed','Collapsed')+'</div><div class="tsub">Fade strength</div><div class="seg wrap4">'+sopt('fade','off','Off')+sopt('fade','light','Light')+sopt('fade','strong','Strong')+sopt('fade','very','Very transparent')+'</div><label class="tdtg"><input type="checkbox" id="muteNt"'+(t.muteNt==='off'?'':' checked')+'><span>Also mute Not treating eyes</span></label><p class="tdl mu">Size and fade are separate. The Not due or Not treating badge and the Unmute button always stay at full strength. Tapping into a faded card shows it at full strength.</p></div>'+
 '<div class="tdc gen"><label class="tdf" style="margin-top:0"><span>Provider</span><select class="tdin" data-set="prov" aria-label="Provider">'+PROVS.map(function(o){return '<option'+(o===t.prov?' selected':'')+'>'+o+'</option>'}).join('')+'</select></label></div>'+
-'<button class="b s" style="display:grid" data-a="setback">'+bk+'</button></div>'}
-function theme(){warm();document.documentElement.classList.toggle('lt',ST().theme==='light');document.documentElement.classList.toggle('mf',ST().mute==='fade');var m=document.querySelector('meta[name=theme-color]');if(m)m.content=ST().theme==='light'?'#FAF8F5':'#000000'}
+'<div class="tdc gen"><div class="tdsl" style="margin-top:0">Demo data</div><p class="tdl mu" style="margin-top:4px">Fictional patients only. Restores the 15 demo patients for today (varied visits, statuses and drugs, one snowbird with an outside injection). Anything else on this phone is left as it is.</p><button class="b s" style="display:grid" data-a="demo22">Load demo schedule</button></div>'+'<button class="b s" style="display:grid" data-a="setback">'+bk+'</button></div>'}
+function theme(){warm();var th=ST().theme,R=document.documentElement,f=ST().fade;R.classList.toggle('lt',th==='light'||th==='cinder');R.classList.toggle('cn',th==='cinder');R.classList.toggle('fdL',f==='light');R.classList.toggle('fdS',f==='strong');R.classList.toggle('fdV',f==='very');var m=document.querySelector('meta[name=theme-color]');if(m)m.content=th==='light'?'#FAF8F5':th==='cinder'?'#2C2825':'#000000'}
 document.addEventListener('input',function(ev){var t=ev.target;if(!t||t.id!=='wmR')return;ST().wm=+t.value;warm();var k=document.getElementById('wmK');if(k)k.textContent=kelvin(ST().wmOn?t.value:0)+' K';save()});
 document.addEventListener('change',function(ev){var t=ev.target;if(!t||t.id!=='wmOn')return;ST().wmOn=t.checked;if(ST().wm==null)ST().wm=40;var r=document.getElementById('wmR');if(r)r.disabled=!t.checked;warm();var k=document.getElementById('wmK');if(k)k.textContent=kelvin(t.checked?ST().wm:0)+' K';save();toast(t.checked?'Color temperature on.':'Color temperature off.')});
 document.addEventListener('change',function(ev){if(ev.target.id==='wmOn')return;if(ev.target.classList&&ev.target.classList.contains('dpick')){if(/^\d{4}-\d{2}-\d{2}$/.test(ev.target.value)){VD=ev.target.value;render()}return}var f=ev.target.dataset&&ev.target.dataset.set;if(f){ST()[f]=ev.target.value;render(true)}});
+function tmin(t){var a=String(t).split(':');return +a[0]*60+(+a[1]||0)}
 function done(p){return ['OD','OS'].every(function(k){var e=p.eyes[k];return !e.treat||e.done})}
 function vCard(p){return bar('sum')+header(p)+'<div class="tabs"><button class="back" data-a="sum">‹ Both</button><button class="tab'+(S.eye==='OD'?' on':'')+'" data-a="tab" data-k="OD">'+eyeL('OD')+'</button><button class="tab'+(S.eye==='OS'?' on':'')+'" data-a="tab" data-k="OS">'+eyeL('OS')+'</button></div><div class="viewport" id="vp"><div class="track" id="tr"><div class="pane" id="pOD">'+pane(p,'OD')+'</div><div class="pane" id="pOS">'+pane(p,'OS')+'</div></div></div>'}
 function render(keep){var y=window.scrollY,p=P();if(S.view!=='list'&&S.view!=='set'&&!p)S.view='list';
 app.innerHTML=S.view==='list'?vList():S.view==='sum'?vSum(p):S.view==='td'?vTd(p):S.view==='set'?vSet():vCard(p);theme();
 if(S.view==='card'){setX(S.eye==='OD'?0:-50,false);fitH()}
 window.scrollTo(0,keep?y:0);save()}
+function pg23Anim(k,h0){var el=document.getElementById('mc'+k);if(!el||!h0||el.classList.contains('mbx'))return;if(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches)return;el.style.clipPath='inset(0 0 calc(100% - '+h0+'px) 0)';el.style.transition='clip-path .3s cubic-bezier(.2,.7,.2,1)';void el.offsetHeight;el.style.clipPath='inset(0 0 0 0)';setTimeout(function(){el.style.clipPath='';el.style.transition=''},380)}
+document.addEventListener('change',function(ev){var t=ev.target;if(t&&t.id==='muteNt'){ST().muteNt=t.checked?'on':'off';save();if(S.view==='set')render(true)}});
+/* tapping into a faded card shows it at full strength until the next tap elsewhere */
+document.addEventListener('pointerdown',function(ev){var c=ev.target.closest&&ev.target.closest('.mutd');document.querySelectorAll('.mutd.act23').forEach(function(x){if(x!==c)x.classList.remove('act23')});if(c)c.classList.add('act23')},true);
 function rePane(k){var p=P(),el=document.getElementById('p'+k);if(el)el.innerHTML=pane(p,k);var hd=document.querySelector('.hd');if(hd)hd.outerHTML=header(p);fitH();save()}
 function fitH(){var vp=document.getElementById('vp');if(!vp)return;var a=document.getElementById('p'+S.eye);vp.style.height=a.scrollHeight+'px'}
 function setX(pct,anim,px){var t=document.getElementById('tr');if(!t)return;t.style.transition=anim?'transform .32s cubic-bezier(.2,.8,.2,1)':'none';t.style.transform='translate3d(calc('+pct+'% + '+(px||0)+'px),0,0)'}
@@ -600,6 +722,7 @@ case'dprev':VD=shift(VD,-1);render();break;
 case'dnext':VD=shift(VD,1);render();break;
 case'dtoday':VD=TODAY;render();break;
 case'settings':if(S.view==='set')break;S.setFrom=S.view;S.view='set';render();break;
+case'demo22':var dm=demo(),ids={};dm.forEach(function(x){ids[x.id]=1});S.pts=S.pts.filter(function(x){return !ids[x.id]}).concat(dm).sort(function(x,y){return tmin(x.time)-tmin(y.time)});VD=TODAY;render();toast('Loaded '+dm.length+' fictional demo patients for today.');break;
 case'setback':S.view=S.setFrom&&S.setFrom!=='set'&&P()?S.setFrom:'list';render();break;
 case'set':ST()[el.dataset.f]=el.dataset.v;render(true);break;
 case'tdback':if(history.state&&history.state.rptd)history.back();else closeTd();break;
@@ -620,6 +743,14 @@ case'setoctt':var vv=el.dataset.v.split(':'),LL=octEyes(p).map(function(z){retur
 case'ivfix':openSheet('<h3><span class="bdt">'+eyeL(k)+'</span> Current interval · '+Q(e.iv)+'</h3><button class="opt" data-a="ivpick" data-k="'+k+'">Correct interval\u2026</button><button class="b s" style="display:grid;margin-top:6px" data-a="close">Close</button>');break;
 case'ivpick':openSheet('<h3><span class="bdt">'+eyeL(k)+'</span> Correct interval</h3><p class="rech" style="margin:0 0 10px">Fixes the record only: not logged as Shorten or Extend, not shown in Last visit, not plotted in Interval history.</p><div class="ivg">'+IVC.map(function(n){return '<button class="dchip'+(n===e.iv?' on':'')+'" data-a="ivset" data-k="'+k+'" data-v="'+n+'" aria-pressed="'+(n===e.iv)+'">'+Q(n)+'</button>'}).join('')+'</div><button class="b s" style="display:grid;margin-top:12px" data-a="close">Cancel</button>');break;
 case'ivset':var a0=e.iv,a1=+el.dataset.v;closeSheet();if(fixIv(e,a1)){rePane(k);toast(eyeL(k)+' interval corrected '+Q(a0)+' \u2192 '+Q(a1)+' (record only).')}break;
+case'xsadd':var xn=p.xsDef||sitDef();e.xs=xn;p.xsDef=xn;rePane('OD');rePane('OS');toast(eyeL(k)+' extended sit '+xn+' min added.');break;
+case'xsmenu':var dm=xsLen(p,e)||sitDef(),sb='';for(var mi=1;mi<=10;mi++)sb+='<button class="dchip'+(mi===dm?' on':'')+'" data-a="xsset" data-k="'+k+'" data-v="'+mi+'" aria-pressed="'+(mi===dm)+'">'+mi+' min</button>';openSheet('<h3><span class="bdt">'+eyeL(k)+'</span> Extended sit</h3><p class="rech" style="margin:0 0 10px">Choose the length. It is saved as this patient\u2019s default.</p><div class="ivg">'+sb+'</div><button class="b s" style="display:grid;margin-top:12px" data-a="xsrm" data-k="'+k+'">Remove extended sit</button>');break;
+case'xsset':var xm=+el.dataset.v;e.xs=xm;p.xsDef=xm;e.xsT={s:Date.now(),len:xm*60000};closeSheet();rePane('OD');rePane('OS');toast(eyeL(k)+' extended sit '+xm+' min started. Saved as the patient default.');break;
+case'xsgo':var xg=xsLen(p,e)||sitDef();e.xsT={s:Date.now(),len:xg*60000};rePane('OD');rePane('OS');toast(eyeL(k)+' extended sit started, '+xg+' min.');break;
+case'xshalt':delete e.xsT;rePane('OD');rePane('OS');toast(eyeL(k)+' extended sit stopped.');break;
+case'xsrm':e.xs=0;delete e.xsT;delete p.xsDef;closeSheet();rePane('OD');rePane('OS');toast(eyeL(k)+' extended sit removed. The patient default is cleared.');break;
+case'mutetog':e.mu=e.mu==='off'?null:'off';if(S.view==='card'){rePane('OD');rePane('OS')}else render(true);break;
+case'coltog':var h0=(document.getElementById('mc'+k)||{}).offsetHeight||0;e.colOpen=!e.colOpen;if(S.view==='card')rePane(k);else render(true);save();pg23Anim(k,h0);var nb=document.querySelector('[data-a=coltog][data-k='+k+']');if(nb)nb.focus();break;
 case'sit':var dm=sitDef(),sb='';for(var mi=1;mi<=10;mi++)sb+='<button class="dchip'+(mi===dm?' on':'')+'" data-a="sitgo" data-k="'+k+'" data-v="'+mi+'"'+(mi===dm?' aria-current="true"':'')+'>'+mi+' min</button>';openSheet('<h3><span class="bdt">'+eyeL(k)+'</span> Extended sit</h3><p class="rech" style="margin:0 0 10px">Choose the length. Default '+dm+' min (Settings).</p><div class="ivg">'+sb+'</div>');break;
 case'sitgo':var mn=+el.dataset.v;e.sit={end:Date.now()+mn*60000,len:mn};closeSheet();rePane(k);toast(eyeL(k)+' extended sit '+mn+' min started.');break;
 case'sithalt':var fin=e.sit&&e.sit.end<=Date.now();e.sit=null;rePane(k);toast(fin?eyeL(k)+' sit complete.':eyeL(k)+' extended sit halted.');break;
@@ -655,6 +786,6 @@ function skip(ev){if(ev){ev.preventDefault();ev.stopPropagation()}finish('skip')
 el.addEventListener('pointerdown',skip,true);el.addEventListener('click',skip,true);document.addEventListener('keydown',skip,true);
 setTimeout(function(){finish('auto')},rm?700:4100)})();
 if('serviceWorker' in navigator&&location.protocol.indexOf('http')===0&&window.RP_SW)navigator.serviceWorker.register('sw.js').catch(function(){});
-window.RP={dxl:dxl,eyeL:eyeL,vd:function(){return VD},today:TODAY,state:function(){return S},go:go,ivUp:ivUp,ivDn:ivDn,ivDn4:ivDn4,usualPlan:usualPlan};
+window.RP={isMut:isMut,isCol:isCol,octTop:octTop,xsLen:xsLen,dxl:dxl,eyeL:eyeL,vd:function(){return VD},today:TODAY,state:function(){return S},go:go,ivUp:ivUp,ivDn:ivDn,ivDn4:ivDn4,usualPlan:usualPlan};
 })();
 </script></body></html>
